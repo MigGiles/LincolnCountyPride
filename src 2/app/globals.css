@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White */
+    --foreground: 220 15% 25%; /* Dark Desaturated Blue/Gray */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 220 15% 25%; /* Dark Desaturated Blue/Gray */
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 220 15% 25%; /* Dark Desaturated Blue/Gray */
+
+    --primary: 320 85% 60%; /* Vibrant Hot Pink */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 30 95% 55%; /* Vibrant Orange */
+    --secondary-foreground: 0 0% 100%; /* White */
+
+    --muted: 270 70% 93%; /* Very Light Purple */
+    --muted-foreground: 270 50% 45%; /* Muted Purple */
+    
+    --accent: 50 100% 55%; /* Vibrant Yellow */
+    --accent-foreground: 30 50% 15%; /* Dark Brown for contrast on yellow */
+
+    --cta: 130 70% 40%; /* Vibrant Green */
+    --cta-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 280 60% 85%; /* Light Purple */
+    --input: 270 60% 96%; /* Very Light Purple/Pink (existing) */
+    --ring: 280 80% 65%; /* Bright Purple for focus */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 15% 10%; /* Very Dark Desaturated Blue */
+    --foreground: 0 0% 95%; /* Off-White */
+
+    --card: 220 15% 12%; /* Slightly lighter than dark background */
+    --card-foreground: 0 0% 95%; /* Off-White */
+
+    --popover: 220 15% 12%; /* Slightly lighter than dark background */
+    --popover-foreground: 0 0% 95%; /* Off-White */
+
+    --primary: 320 90% 70%; /* Bright Hot Pink for Dark Mode */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 30 100% 65%; /* Bright Orange for Dark Mode */
+    --secondary-foreground: 30 50% 10%; /* Dark Brown for contrast on bright orange */
+
+    --muted: 270 30% 20%; /* Dark Muted Purple */
+    --muted-foreground: 270 50% 65%; /* Light Muted Purple Text */
+    
+    --accent: 50 100% 65%; /* Bright Yellow for Dark Mode */
+    --accent-foreground: 30 50% 10%; /* Dark Brown for contrast on bright yellow */
+
+    --cta: 130 70% 50%; /* Brighter Green for Dark Mode */
+    --cta-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 280 25% 30%; /* Dark Muted Purple */
+    --input: 270 25% 20%; /* Dark Muted Purple/Pink (existing) */
+    --ring: 280 80% 70%; /* Bright Purple for Dark Mode focus */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border transition-all duration-200 ease-in-out;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 50%, hsl(var(--accent)) 100%);
+  }
+
+  .rainbow-divider {
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    height: 4px;
+    width: 100%;
+  }
+
+  .btn-primary {
+    @apply bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] rounded-md px-4 py-2 font-medium shadow hover:bg-[hsl(var(--primary)_/_85%)];
+  }
+
+  .btn-secondary {
+    @apply bg-[hsl(var(--secondary))] text-[hsl(var(--secondary-foreground))] rounded-md px-4 py-2 font-medium shadow hover:bg-[hsl(var(--secondary)_/_85%)];
+  }
+
+  .btn-cta {
+    @apply bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] rounded-full px-5 py-2 font-semibold shadow-md hover:bg-[hsl(var(--cta)_/_85%)];
+  }
+
+  .header {
+    @apply w-full bg-background text-foreground border-b border-border px-6 py-4 flex items-center justify-between shadow-sm;
+  }
+
+  .footer {
+    @apply w-full bg-background text-foreground border-t border-border px-6 py-6 text-sm text-center;
+  }
+}
